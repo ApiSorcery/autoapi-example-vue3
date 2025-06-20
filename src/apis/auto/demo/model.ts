@@ -5,9 +5,28 @@ export interface BlobResp {
   name: String;
 }
 
+/** 批量导出用户（Excel）请求参数 */
+export interface ExportUsersRequest {
+  code: string;
+
+  name: string;
+
+  email: string;
+}
+
+/** 获取单个用户请求参数 */
+export interface GetUserOneRequest {
+  id: number;
+}
+
 /** 删除用户请求参数 */
 export interface RemoveUserRequest {
   id: number;
+}
+
+/** 校验用户编号是否存在请求参数 */
+export interface ValidateCodeRequest {
+  code: string;
 }
 
 /** 校验用户邮箱是否存在请求参数 */
@@ -15,41 +34,21 @@ export interface ValidateEmailRequest {
   email: string;
 }
 
-/** 校验用户昵称是否存在请求参数 */
-export interface ValidateNickNameRequest {
-  nickName: string;
+/** 删除文件请求参数 */
+export interface FileControllerDeleteFileRequest {
+  /** 文件UUID */
+  id: string;
 }
 
-/** 获取应用详情请求参数 */
-export interface GetApplicationInfoRequest {
-  id: number;
+/** 获取文件请求参数 */
+export interface FileControllerGetFileRequest {
+  /** 文件UUID */
+  id: string;
 }
 
-/** 删除应用请求参数 */
-export interface RemoveApplicationRequest {
-  id: number;
-}
-
-/** 获取服务详情请求参数 */
-export interface GetServerInfoRequest {
-  id: number;
-}
-
-/** 删除服务请求参数 */
-export interface RemoveServerRequest {
-  id: number;
-}
-
-/** 获取应用列表（分页）应答参数 */
-export interface GetApplicationPagedResponse {
-  results: Array<ApplicationResponseDto>;
-
-  total: number;
-}
-
-/** 获取服务列表（分页）应答参数 */
-export interface GetServerPagedResponse {
-  results: Array<ServerResponseDto>;
+/** 分页查询用户列表应答参数 */
+export interface GetUserPageResponse {
+  results: Array<User>;
 
   total: number;
 }
@@ -76,155 +75,18 @@ export interface UserInfoResponseDto {
   id: number;
 
 /**
- * 用户邮箱
+ * 用户编号
  */
-  email: string;
-
-/**
- * 用户昵称
- */
-  nickName: string;
+  code: string;
 
 /**
  * 用户名称
  */
-  userName: string;
+  name: string;
 
 }
 
 export interface User {
-}
-
-export interface SignInResponseDto {
-/**
- * 登录令牌
- */
-  token: string;
-
-}
-
-export interface SignInRequestDto {
-/**
- * 用户邮箱
- */
-  email: string;
-
-/**
- * 登录密码
- */
-  password: string;
-
-/**
- * 验证码绑定键
- */
-  bindKey: string;
-
-/**
- * 验证码
- */
-  captcha: string;
-
-}
-
-export interface SignUpRequestDto {
-/**
- * 邮箱
- */
-  email: string;
-
-/**
- * 验证码
- */
-  captcha: number;
-
-/**
- * 密码
- */
-  password: string;
-
-}
-
-export interface ModifyPasswordRequestDto {
-/**
- * 原始密码
- */
-  oldPassword: string;
-
-/**
- * 新密码
- */
-  newPassword: string;
-
-/**
- * 确认密码
- */
-  confirmPassword: string;
-
-}
-
-export interface SendEmailCaptchaRequestDto {
-/**
- * 邮箱
- */
-  email: string;
-
-}
-
-export interface FindPasswordRequestDto {
-/**
- * 邮箱
- */
-  email: string;
-
-/**
- * 验证码
- */
-  captcha: number;
-
-/**
- * 新密码
- */
-  newPassword: string;
-
-}
-
-export interface ImageCaptchaResponseDto {
-/**
- * 验证码绑定键
- */
-  bindKey: string;
-
-/**
- * 验证码SVG图片
- */
-  image: string;
-
-}
-
-export interface Application {
-}
-
-export interface ApplicationResponseDto {
-/**
- * 应用ID
- */
-  id: number;
-
-/**
- * 应用名称
- */
-  name: string;
-
-/**
- * 创建时间
- */
-  createdAt: string;
-
-/**
- * 修改时间
- */
-  updatedAt: string;
-
 }
 
 export interface Pagination {
@@ -250,177 +112,69 @@ export interface Pagination {
 
 }
 
-export interface ApplicationQueryRequestDto {
+export interface UserPageQueryDto {
 /**
- * 应用名称
- */
-  name?: string;
-
-/**
- * 分页信息
+ * 分页参数
  */
   pagination?: Pagination;
 
-}
-
-export interface ApplicationAddRequestDto {
 /**
- * 产品ID
- */
-  productId: number;
-
-/**
- * 应用名称
- */
-  name: string;
-
-}
-
-export interface ApplicationEditRequestDto {
-/**
- * 应用ID
- */
-  id: number;
-
-/**
- * 应用名称
- */
-  name?: string;
-
-}
-
-export interface Server {
-}
-
-export interface ServerResponseDto {
-/**
- * 服务ID
- */
-  id: number;
-
-/**
- * 应用ID
- */
-  applicationId: number;
-
-/**
- * 产品ID
- */
-  productId: number;
-
-/**
- * 服务令牌
- */
-  token?: string;
-
-/**
- * 服务编号
- */
-  code: string;
-
-/**
- * 服务名称
- */
-  name: string;
-
-/**
- * 创建时间
- */
-  createdAt: string;
-
-/**
- * 修改时间
- */
-  updatedAt: string;
-
-}
-
-export interface ServerQueryRequestDto {
-/**
- * 应用ID
- */
-  applicationId?: number;
-
-/**
- * 服务名称
- */
-  name?: string;
-
-/**
- * 分页信息
- */
-  pagination?: Pagination;
-
-}
-
-export interface ServerAddRequestDto {
-/**
- * 产品ID
- */
-  productId: number;
-
-/**
- * 应用ID
- */
-  applicationId: number;
-
-/**
- * 服务编号
- */
-  code: string;
-
-/**
- * 服务名称
- */
-  name: string;
-
-}
-
-export interface ServerEditRequestDto {
-/**
- * 服务ID
- */
-  id: number;
-
-/**
- * 服务编号
+ * 用户编码
  */
   code?: string;
 
 /**
- * 服务名称
+ * 用户姓名
  */
   name?: string;
 
-}
-
-export interface ReportResponseDto {
 /**
- * 统计结果
+ * 用户邮箱
  */
-  results: Array<any>;
+  email?: string;
 
 }
 
-export interface ReportQueryRequestDto {
+export interface SignInResponseDto {
 /**
- * 应用ID
+ * 登录令牌
  */
-  applicationId?: number;
+  token: string;
+
+}
+
+export interface SignInRequestDto {
+/**
+ * 用户编号
+ */
+  code: string;
 
 /**
- * 服务ID
+ * 登录密码
  */
-  serverId?: number;
+  password: string;
 
 /**
- * 开始时间
+ * 验证码绑定键
  */
-  startTime: string;
+  bindKey: string;
 
 /**
- * 结束时间
+ * 验证码
  */
-  endTime: string;
+  captcha: string;
+
+}
+
+export interface ImageCaptchaResponseDto {
+/**
+ * 验证码绑定键
+ */
+  bindKey: string;
+
+/**
+ * 验证码SVG图片
+ */
+  image: string;
 
 }

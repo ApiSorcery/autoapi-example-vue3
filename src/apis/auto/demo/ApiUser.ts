@@ -5,50 +5,76 @@ import * as Model from './model';
 /**
  * 新增用户
  */
-  export const addUser = base.createJsonRequest<Model.User,number>((data) => ({
-      url: `/user`,
-      method: 'POST',
-      data
-  }))
+export const addUser = base.createJsonRequest<Model.User, number>((data) => ({
+  url: `/user`,
+  method: 'POST',
+  data
+}))
 
 /**
- * 获取用户信息
+ * 批量导出用户（Excel）
  */
-  export const getUserInfo = base.createNoParamsJsonRequest<Model.UserInfoResponseDto>(() => ({
-      url: `/user`,
-      method: 'GET'
-  }))
+export const exportUsers = base.createBlobRequest<Model.ExportUsersRequest>((req) => ({
+  url: `/user/export`,
+  method: 'GET',
+  params: { 'code': req.code, 'name': req.name, 'email': req.email },
+}))
+
+/**
+ * 获取登录用户信息
+ */
+export const getLoginUserInfo = base.createNoParamsJsonRequest<Model.UserInfoResponseDto>(() => ({
+  url: `/user/info`,
+  method: 'GET'
+}))
+
+/**
+ * 获取单个用户
+ */
+export const getUserOne = base.createJsonRequest<Model.GetUserOneRequest, Model.User>((req) => ({
+  url: `/user/${req.id}`,
+  method: 'GET',
+}))
+
+/**
+ * 分页查询用户列表
+ */
+export const getUserPage = base.createJsonRequest<Model.UserPageQueryDto, Model.GetUserPageResponse>((data) => ({
+  url: `/user/paged`,
+  method: 'POST',
+  data
+}))
 
 /**
  * 修改用户信息
  */
-  export const modifyUser = base.createNoParamsJsonRequest(() => ({
-      url: `/user`,
-      method: 'PATCH'
-  }))
+export const modifyUser = base.createNoParamsJsonRequest(() => ({
+  url: `/user`,
+  method: 'PATCH'
+}))
 
 /**
  * 删除用户
  */
-  export const removeUser = base.createJsonRequest<Model.RemoveUserRequest>((req) => ({
-      url: `/user/${req.id}`,
-      method: 'DELETE',
-  }))
+export const removeUser = base.createJsonRequest<Model.RemoveUserRequest>((req) => ({
+  url: `/user/${req.id}`,
+  method: 'DELETE',
+}))
+
+/**
+ * 校验用户编号是否存在
+ */
+export const validateCode = base.createJsonRequest<Model.ValidateCodeRequest, boolean>((req) => ({
+  url: `/user/validateCode`,
+  method: 'GET',
+  params: { 'code': req.code },
+}))
 
 /**
  * 校验用户邮箱是否存在
  */
-  export const validateEmail = base.createJsonRequest<Model.ValidateEmailRequest,Model.UserInfoResponseDto>((req) => ({
-      url: `/user/validateEmail`,
-      method: 'GET',
-      params: {'email': req.email},
-  }))
-
-/**
- * 校验用户昵称是否存在
- */
-  export const validateNickName = base.createJsonRequest<Model.ValidateNickNameRequest,boolean>((req) => ({
-      url: `/user/validateNickName`,
-      method: 'GET',
-      params: {'nickName': req.nickName},
-  }))
+export const validateEmail = base.createJsonRequest<Model.ValidateEmailRequest, Model.UserInfoResponseDto>((req) => ({
+  url: `/user/validateEmail`,
+  method: 'GET',
+  params: { 'email': req.email },
+}))
