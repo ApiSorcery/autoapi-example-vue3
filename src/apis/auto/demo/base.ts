@@ -11,10 +11,10 @@ export const createNoParamsJsonRequest = <TResp = any>(requestConfigCreator: () 
   return () => <Promise<TResp>>jsonRequest(requestConfigCreator())
 }
 
-export const createBlobRequest = <TReq>(requestConfigCreator: (args: TReq) => AxiosRequestConfig) => {
+export const createDownloadRequest = <TReq>(requestConfigCreator: (args: TReq) => AxiosRequestConfig) => {
   return (args: TReq) => blobRequest(requestConfigCreator(args)) as unknown as Promise<BlobResp>
 }
 
-export const createNoParamsBlobRequest = (requestConfigCreator: () => AxiosRequestConfig) => {
+export const createNoParamsDownloadRequest = (requestConfigCreator: () => AxiosRequestConfig) => {
   return () => blobRequest(requestConfigCreator()) as unknown as Promise<BlobResp>
 }

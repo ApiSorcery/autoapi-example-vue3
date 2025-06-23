@@ -373,7 +373,7 @@
     },
     "/file/upload": {
       "post": {
-        "operationId": "FileController_uploadFile",
+        "operationId": "uploadFile",
         "summary": "上传文件",
         "parameters": [],
         "requestBody": {
@@ -427,7 +427,7 @@
     },
     "/file/{id}": {
       "get": {
-        "operationId": "FileController_getFile",
+        "operationId": "getFile",
         "summary": "获取文件",
         "parameters": [
           {
@@ -468,7 +468,7 @@
         ]
       },
       "delete": {
-        "operationId": "FileController_deleteFile",
+        "operationId": "deleteFile",
         "summary": "删除文件",
         "parameters": [
           {

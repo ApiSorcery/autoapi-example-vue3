@@ -35,15 +35,27 @@ export interface ValidateEmailRequest {
 }
 
 /** 删除文件请求参数 */
-export interface FileControllerDeleteFileRequest {
+export interface DeleteFileRequest {
   /** 文件UUID */
   id: string;
 }
 
 /** 获取文件请求参数 */
-export interface FileControllerGetFileRequest {
+export interface GetFileRequest {
   /** 文件UUID */
   id: string;
+}
+
+/** 上传文件请求参数 */
+export interface UploadFileRequest {
+  /** 要上传的文件 */
+  file?: File;
+
+  /** 文件描述（可选） */
+  description?: string;
+
+  /** 上传进度回调函数 */
+  onUploadProgress: (progressEvent: ProgressEvent) => void;
 }
 
 /** 分页查询用户列表应答参数 */
