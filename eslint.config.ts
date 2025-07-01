@@ -21,4 +21,9 @@ export default defineConfigWithVueTs(
   vueTsConfigs.recommended,
   ...pluginOxlint.configs['flat/recommended'],
   skipFormatting,
+  {
+    rules: {
+      'no-explicit-any': 'off',
+    },
+  },
 )

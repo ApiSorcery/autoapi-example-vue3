@@ -4,21 +4,14 @@
       <ca-common-query v-bind="{ ...query, emitRegister }" />
     </div>
     <div class="common-table-container">
-      <ca-common-table
-        v-bind="{
-          ...table,
-          emitRegister,
-          elementProps: { ...table.elementProps, onChange: onTableChange }
-        }"
-      />
+      <ca-common-table v-bind="{
+        ...table,
+        emitRegister,
+        elementProps: { ...table.elementProps, onChange: onTableChange }
+      }" />
     </div>
-    <Modal
-      v-model:open="form.visible"
-      :title="form.title"
-      width="900px"
-      :footer="null"
-      :after-close="() => resetForm({ form, callback: getList })"
-    >
+    <Modal v-model:open="form.visible" :title="form.title" width="900px" :footer="null"
+      :after-close="() => resetForm({ form, callback: getList })">
       <ca-common-form v-bind="form" />
     </Modal>
   </div>
@@ -32,6 +25,10 @@ import { resetForm, setFormValue } from '@/hooks/component/useModal'
 import useCommonTable from './hooks/useCommonTable'
 import useCommonQuery from './hooks/useCommonQuery'
 import useCommonForm from './hooks/useCommonForm'
+
+defineOptions({
+  name: 'UserAdmin'
+})
 
 const optionsMap = reactive<Record<string, SelectItem[]>>({
   sex: [
@@ -87,7 +84,7 @@ const form = useCommonForm({ optionsMap })
 //#region query
 const handleFilter = () => {
   console.log('handleFilter', query.model)
-  ;(table.pagination || {}).current = 1
+    ; (table.pagination || {}).current = 1
   getList()
 }
 
@@ -223,8 +220,8 @@ const getList = () => {
 
 const onTableChange = (newPagination, filters, sorter, extra) => {
   console.log('onTableChange', newPagination, filters, sorter, extra)
-  ;(table.pagination || {}).current = newPagination.current
-  ;(table.pagination || {}).pageSize = newPagination.pageSize
+    ; (table.pagination || {}).current = newPagination.current
+    ; (table.pagination || {}).pageSize = newPagination.pageSize
   getList()
 }
 
