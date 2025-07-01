@@ -1,8 +1,8 @@
 import { computed, reactive } from 'vue'
-import type { CommonForm, FormField } from '#/castor-antd'
+import type { CommonForm, FormField, CommonCommand } from '#/castor-antd'
 import { message } from 'ant-design-vue'
 
-export default function useCommonForm({ optionsMap }) {
+export default function useCommonForm({ optionsMap }: { optionsMap: Record<string, any> }) {
   const fields = computed<Array<FormField>>(() => {
     return [
       {
@@ -16,12 +16,12 @@ export default function useCommonForm({ optionsMap }) {
             {
               text: '取消关注',
               command: 'handleUnStar',
-              visibleValidator: ({ operateType }) => operateType !== 'view'
+              visibleValidator: ({ operateType }: { operateType: string }) => operateType !== 'view'
             },
             {
               text: '关注',
               command: 'handleStar',
-              visibleValidator: ({ operateType }) => operateType !== 'view'
+              visibleValidator: ({ operateType }: { operateType: string }) => operateType !== 'view'
             }
           ]
         }
@@ -45,7 +45,7 @@ export default function useCommonForm({ optionsMap }) {
         dataField: 'sex',
         columnSpan: 1,
         rules: [{ required: true, trigger: 'change', message: '不能为空' }],
-        visibleValidator: ({ operateType }) => operateType !== 'add',
+        visibleValidator: ({ operateType }: { operateType: string }) => operateType !== 'add',
         elementProps: {
           options: optionsMap['sex'],
           allowClear: true
@@ -139,7 +139,7 @@ export default function useCommonForm({ optionsMap }) {
     console.log('handleUnStar', form.model)
   }
 
-  const handleSave = async ({ command }) => {
+  const handleSave = async ({ command }: { command: CommonCommand }) => {
     console.log('handleSave', form.model, form.emitRegister)
     command.loading = true
     try {
@@ -182,7 +182,7 @@ export default function useCommonForm({ optionsMap }) {
         text: '确定',
         command: 'handleSave',
         loading: false,
-        visibleValidator: ({ operateType }) => operateType !== 'view',
+        visibleValidator: ({ operateType }: { operateType: string }) => operateType !== 'view',
         elementProps: {
           type: 'primary'
         }

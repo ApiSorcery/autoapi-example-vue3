@@ -74,8 +74,8 @@ export default function useCommonTable() {
             {
               text: '编辑',
               command: 'handleEdit',
-              disableValidator: ({ row }) => row.id === 2,
-              visibleValidator: ({ row }) => row.id >= 2
+              disableValidator: ({ row }: { row: any }) => row.id === 2,
+              visibleValidator: ({ row }: { row: any }) => row.id >= 2
             },
             {
               text: '删除',
