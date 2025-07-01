@@ -631,7 +631,8 @@
             "description": "状态描述"
           },
           "data": {
-            "type": "object"
+            "type": "object",
+            "description": "返回结果"
           }
         },
         "required": [

@@ -1,7 +1,12 @@
 /** 二进制数据返回类型 */
 export interface BlobResp {
+  /** 文件内容 */
   data: Blob;
+
+  /** 文件类型 */
   type: String;
+
+  /** 文件名 */
   name: String;
 }
 
@@ -76,6 +81,9 @@ export interface ResultData {
  */
   message: string;
 
+/**
+ * 返回结果
+ */
   data: any;
 
 }
