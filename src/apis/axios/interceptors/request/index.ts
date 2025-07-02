@@ -27,6 +27,8 @@ export default {
       config.params = Object.assign(config.params || {}, { _t: new Date().getTime() })
     }
 
+    config.headers['Authorization'] = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjk5OTk5OTk5OSwiY29kZSI6ImFkbWluIiwicGFzc3dvcmQiOiIxMjM0NTY3OCIsImJpbmRLZXkiOiJiZmQxYTY3Ny03ZjU3LTRlMmMtYTNmZC1hZTI4OTIwMjk4ZTAiLCJjYXB0Y2hhIjoiYnp2TyIsImlhdCI6MTc1MTQxNzY2N30.3sWN16PUEhsy2rISAmdOCZ_M9tesoR6wnFUjSQFDW9Q`
+
     return config
   },
   onRejected: (error: any) => {

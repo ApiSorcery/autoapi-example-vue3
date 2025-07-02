@@ -25,6 +25,7 @@ import { resetForm, setFormValue } from '@/hooks/component/useModal'
 import useCommonTable from './hooks/useCommonTable'
 import useCommonQuery from './hooks/useCommonQuery'
 import useCommonForm from './hooks/useCommonForm'
+import * as apiUser from '@/apis/auto/demo/ApiUser'
 
 defineOptions({
   name: 'UserAdmin'
@@ -96,126 +97,17 @@ const handleReset = async () => {
 //#endregion
 
 //#region  table
-const getList = () => {
+const getList = async () => {
   console.log('getList', table.pagination, query.model)
   table.loading = true
-  setTimeout(() => {
-    const baseIndex =
-      (((table.pagination || {}).current || 1) - 1) * ((table.pagination || {}).pageSize || 10)
-    table.dataSource = [
-      {
-        id: baseIndex + 1,
-        code: `${100 + baseIndex + 1}`,
-        name: '王小虎',
-        sex: 1,
-        address: '上海市普陀区金沙江路 1518 弄',
-        userDate: '2016-05-02',
-        userYear: '2016',
-        userMonth: '2016-05',
-        equipment: ['double']
-      },
-      {
-        id: baseIndex + 2,
-        code: `${100 + baseIndex + 2}`,
-        name: '王小虎',
-        sex: 1,
-        address: '上海市普陀区金沙江路 1517 弄',
-        userDate: '2016-05-04',
-        userYear: '2016',
-        userMonth: '2016-05',
-        equipment: ['double']
-      },
-      {
-        id: baseIndex + 3,
-        code: `${100 + baseIndex + 3}`,
-        name: '王小虎',
-        sex: 1,
-        address: '上海市普陀区金沙江路 1519 弄',
-        userDate: '2016-05-01',
-        userYear: '2016',
-        userMonth: '2016-05',
-        equipment: ['double']
-      },
-      {
-        id: baseIndex + 4,
-        code: `${100 + baseIndex + 4}`,
-        name: '王小虎',
-        sex: 1,
-        address: '上海市普陀区金沙江路 1516 弄',
-        userDate: '2016-05-03',
-        userYear: '2016',
-        userMonth: '2016-05',
-        equipment: ['double']
-      },
-      {
-        id: baseIndex + 5,
-        code: `${100 + baseIndex + 5}`,
-        name: '王小虎',
-        sex: 1,
-        address: '上海市普陀区金沙江路 1518 弄',
-        userDate: '2016-05-02',
-        userYear: '2016',
-        userMonth: '2016-05',
-        equipment: ['double']
-      },
-      {
-        id: baseIndex + 6,
-        code: `${100 + baseIndex + 6}`,
-        name: '王小虎',
-        sex: 1,
-        address: '上海市普陀区金沙江路 1517 弄',
-        userDate: '2016-05-04',
-        userYear: '2016',
-        userMonth: '2016-05',
-        equipment: ['double']
-      },
-      {
-        id: baseIndex + 7,
-        code: `${100 + baseIndex + 7}`,
-        name: '王小虎',
-        sex: 1,
-        address: '上海市普陀区金沙江路 1519 弄',
-        userDate: '2016-05-01',
-        userYear: '2016',
-        userMonth: '2016-05',
-        equipment: ['double']
-      },
-      {
-        id: baseIndex + 8,
-        code: `${100 + baseIndex + 8}`,
-        name: '王小虎',
-        sex: 1,
-        address: '上海市普陀区金沙江路 1516 弄',
-        userDate: '2016-05-03',
-        userYear: '2016',
-        userMonth: '2016-05',
-        equipment: ['double']
-      },
-      {
-        id: baseIndex + 9,
-        code: `${100 + baseIndex + 9}`,
-        name: '王小虎',
-        sex: 1,
-        address: '上海市普陀区金沙江路 1518 弄',
-        userDate: '2016-05-02',
-        userYear: '2016',
-        userMonth: '2016-05',
-        equipment: ['double']
-      },
-      {
-        id: baseIndex + 10,
-        code: `${100 + baseIndex + 10}`,
-        name: '王小虎',
-        sex: 1,
-        address: '上海市普陀区金沙江路 1517 弄',
-        userDate: '2016-05-04',
-        userYear: '2016',
-        userMonth: '2016-05',
-        equipment: ['double']
-      }
-    ]
-    table.loading = false
-  }, 200)
+  const res = await apiUser.getUserPage({
+    page: (table.pagination || {}).current ?? 1,
+    pageSize: (table.pagination || {}).pageSize ?? 10,
+    ...query.model
+  })
+  table.dataSource = res.results;
+  (table.pagination || {}).total = res.total;
+  table.loading = false
 }
 
 const onTableChange = (newPagination, filters, sorter, extra) => {

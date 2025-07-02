@@ -6,6 +6,18 @@ export default function useCommonQuery() {
     return [
       {
         type: 'default',
+        label: '编号',
+        dataField: 'code',
+        columnSpan: 1,
+        extendProps: {
+          formItemProps: {
+            labelCol: { style: { width: '40px' } },
+            wrapperCol: { style: { width: '200px' } }
+          }
+        }
+      },
+      {
+        type: 'default',
         label: '姓名',
         dataField: 'name',
         columnSpan: 1,
@@ -16,26 +28,14 @@ export default function useCommonQuery() {
           }
         }
       },
-      {
-        type: 'default',
-        label: '地址',
-        dataField: 'address',
-        columnSpan: 1,
-        extendProps: {
-          formItemProps: {
-            labelCol: { style: { width: '40px' } },
-            wrapperCol: { style: { width: '200px' } }
-          }
-        }
-      }
     ]
   })
 
   const query = reactive<CommonQuery>({
     loading: false,
     model: {
-      name: '张三',
-      address: '长江路555号'
+      code: 'zhang',
+      name: '',
     },
     fields,
     commands: [

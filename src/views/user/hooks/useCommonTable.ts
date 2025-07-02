@@ -24,6 +24,15 @@ export default function useCommonTable() {
           linkCommand: 'handleLink'
         }
       },
+
+      {
+        type: 'default',
+        label: '姓名',
+        dataField: 'name',
+        elementProps: {
+          width: '100px'
+        }
+      },
       {
         type: 'default',
         label: '年份',
@@ -46,14 +55,6 @@ export default function useCommonTable() {
         dataField: 'userDate',
         elementProps: {
           width: '120px'
-        }
-      },
-      {
-        type: 'default',
-        label: '姓名',
-        dataField: 'name',
-        elementProps: {
-          width: '100px'
         }
       },
       {
