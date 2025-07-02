@@ -35,24 +35,24 @@ export default function useCommonTable() {
       },
       {
         type: 'default',
-        label: '年份',
-        dataField: 'userYear',
+        label: '邮箱',
+        dataField: 'email',
+        elementProps: {
+          width: '180px'
+        }
+      },
+      {
+        type: 'default',
+        label: '性别',
+        dataField: 'gender',
         elementProps: {
           width: '120px'
         }
       },
       {
         type: 'default',
-        label: '月份',
-        dataField: 'userMonth',
-        elementProps: {
-          width: '120px'
-        }
-      },
-      {
-        type: 'default',
-        label: '日期',
-        dataField: 'userDate',
+        label: '头像',
+        dataField: 'avatar',
         elementProps: {
           width: '120px'
         }
@@ -60,7 +60,26 @@ export default function useCommonTable() {
       {
         type: 'default',
         label: '地址',
-        dataField: 'address'
+        dataField: 'address',
+        elementProps: {
+          width: '240px'
+        }
+      },
+      {
+        type: 'default',
+        label: '上次修改时间',
+        dataField: 'updatedAt',
+        elementProps: {
+          width: '180px'
+        }
+      },
+      {
+        type: 'default',
+        label: '创建时间',
+        dataField: 'createdAt',
+        elementProps: {
+          width: '180px'
+        }
       },
       {
         type: 'commands',

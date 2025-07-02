@@ -19,7 +19,8 @@
 
 <script lang="ts" setup>
 import { message, Modal } from 'ant-design-vue'
-import { reactive } from 'vue'
+import { inject, reactive } from 'vue'
+import { Dayjs } from 'dayjs'
 import type { SelectItem } from '#/castor-antd'
 import { resetForm, setFormValue } from '@/hooks/component/useModal'
 import useCommonTable from './hooks/useCommonTable'
@@ -30,7 +31,7 @@ import * as apiUser from '@/apis/auto/demo/ApiUser'
 defineOptions({
   name: 'UserAdmin'
 })
-
+const dayjs = inject('dayjs') as (arg?: string) => Dayjs
 const optionsMap = reactive<Record<string, SelectItem[]>>({
   sex: [
     {
@@ -100,12 +101,20 @@ const handleReset = async () => {
 const getList = async () => {
   console.log('getList', table.pagination, query.model)
   table.loading = true
-  const res = await apiUser.getUserPage({
-    page: (table.pagination || {}).current ?? 1,
-    pageSize: (table.pagination || {}).pageSize ?? 10,
+  const res = await apiUser.getUserPaged({
+    pagination: {
+      page: (table.pagination || {}).current ?? 1,
+      limit: (table.pagination || {}).pageSize ?? 10,
+    },
     ...query.model
   })
-  table.dataSource = res.results;
+  table.dataSource = (res.results || []).map(r => {
+    return {
+      ...r,
+      createdAt: dayjs(r.createdAt).format('YYYY-MM-DD HH:mm:ss'),
+      updatedAt: dayjs(r.updatedAt).format('YYYY-MM-DD HH:mm:ss')
+    }
+  });
   (table.pagination || {}).total = res.total;
   table.loading = false
 }

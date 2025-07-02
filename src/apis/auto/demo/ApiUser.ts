@@ -5,7 +5,7 @@ import * as Model from './model';
 /**
  * 新增用户
  */
-export const addUser = base.createJsonRequest<Model.User,number>((data) => ({
+export const addUser = base.createJsonRequest<Model.UserAddRequestDto,number>((data) => ({
   url: `/user`,
   method: 'POST',
   data
@@ -21,17 +21,9 @@ export const exportUsers = base.createDownloadRequest<Model.ExportUsersRequest>(
 }))
 
 /**
- * 获取登录用户信息
- */
-export const getLoginUserInfo = base.createNoParamsJsonRequest<Model.UserInfoResponseDto>(() => ({
-  url: `/user/info`,
-  method: 'GET'
-}))
-
-/**
  * 获取单个用户
  */
-export const getUserOne = base.createJsonRequest<Model.GetUserOneRequest,Model.User>((req) => ({
+export const getUserOne = base.createJsonRequest<Model.GetUserOneRequest,Model.UserInfoDto>((req) => ({
   url: `/user/${req.id}`,
   method: 'GET',
 }))
@@ -39,7 +31,7 @@ export const getUserOne = base.createJsonRequest<Model.GetUserOneRequest,Model.U
 /**
  * 分页查询用户列表
  */
-export const getUserPage = base.createJsonRequest<Model.UserPageQueryDto,Model.GetUserPageResponse>((data) => ({
+export const getUserPaged = base.createJsonRequest<Model.UserPageQueryDto,Model.GetUserPagedResponse>((data) => ({
   url: `/user/paged`,
   method: 'POST',
   data
@@ -48,9 +40,10 @@ export const getUserPage = base.createJsonRequest<Model.UserPageQueryDto,Model.G
 /**
  * 修改用户信息
  */
-export const modifyUser = base.createNoParamsJsonRequest(() => ({
+export const modifyUser = base.createJsonRequest<Model.UserModifyRequestDto>((data) => ({
   url: `/user`,
-  method: 'PATCH'
+  method: 'PATCH',
+  data
 }))
 
 /**
@@ -73,7 +66,7 @@ export const validateCode = base.createJsonRequest<Model.ValidateCodeRequest,boo
 /**
  * 校验用户邮箱是否存在
  */
-export const validateEmail = base.createJsonRequest<Model.ValidateEmailRequest,Model.UserInfoResponseDto>((req) => ({
+export const validateEmail = base.createJsonRequest<Model.ValidateEmailRequest,boolean>((req) => ({
   url: `/user/validateEmail`,
   method: 'GET',
   params: {'email': req.email},

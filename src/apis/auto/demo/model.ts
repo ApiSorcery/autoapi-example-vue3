@@ -21,7 +21,7 @@ export interface ExportUsersRequest {
 
 /** 获取单个用户请求参数 */
 export interface GetUserOneRequest {
-  id: number;
+  id: string;
 }
 
 /** 删除用户请求参数 */
@@ -64,8 +64,8 @@ export interface UploadFileRequest {
 }
 
 /** 分页查询用户列表应答参数 */
-export interface GetUserPageResponse {
-  results: Array<User>;
+export interface GetUserPagedResponse {
+  results: Array<UserInfoDto>;
 
   total: number;
 }
@@ -88,7 +88,7 @@ export interface ResultData {
 
 }
 
-export interface UserInfoResponseDto {
+export interface UserInfoDto {
 /**
  * 用户ID
  */
@@ -103,6 +103,36 @@ export interface UserInfoResponseDto {
  * 用户名称
  */
   name: string;
+
+/**
+ * 邮箱
+ */
+  email: string;
+
+/**
+ * 性别
+ */
+  gender?: number;
+
+/**
+ * 头像
+ */
+  avatar?: string;
+
+/**
+ * 地址
+ */
+  address?: string;
+
+/**
+ * 创建时间
+ */
+  createdAt: string;
+
+/**
+ * 更新时间
+ */
+  updatedAt?: string;
 
 }
 
@@ -148,53 +178,75 @@ export interface UserPageQueryDto {
  */
   name?: string;
 
-/**
- * 用户邮箱
- */
-  email?: string;
-
 }
 
-export interface SignInResponseDto {
-/**
- * 登录令牌
- */
-  token: string;
-
-}
-
-export interface SignInRequestDto {
+export interface UserAddRequestDto {
 /**
  * 用户编号
  */
   code: string;
 
 /**
- * 登录密码
+ * 用户名称
  */
-  password: string;
+  name: string;
 
 /**
- * 验证码绑定键
+ * 邮箱
  */
-  bindKey: string;
+  email: string;
 
 /**
- * 验证码
+ * 性别
  */
-  captcha: string;
+  gender?: number;
+
+/**
+ * 头像
+ */
+  avatar?: string;
+
+/**
+ * 地址
+ */
+  address?: string;
 
 }
 
-export interface ImageCaptchaResponseDto {
+export interface UserModifyRequestDto {
 /**
- * 验证码绑定键
+ * 用户ID
  */
-  bindKey: string;
+  id: number;
 
 /**
- * 验证码SVG图片
+ * 用户编号
  */
-  image: string;
+  code?: string;
+
+/**
+ * 用户名称
+ */
+  name?: string;
+
+/**
+ * 邮箱
+ */
+  email?: string;
+
+/**
+ * 性别
+ */
+  gender?: number;
+
+/**
+ * 头像
+ */
+  avatar?: string;
+
+/**
+ * 地址
+ */
+  address?: string;
 
 }
