@@ -1,5 +1,3 @@
-import './assets/main.css'
-
 import { createApp } from 'vue'
 import Castor3UI from '@neweratech/castor3-ui'
 import App from './App.vue'

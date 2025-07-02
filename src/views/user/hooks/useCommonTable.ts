@@ -67,7 +67,7 @@ export default function useCommonTable() {
         dataField: 'commands',
         elementProps: {
           fixed: 'right',
-          width: '120px'
+          width: '160px'
         },
         extendProps: {
           commands: [

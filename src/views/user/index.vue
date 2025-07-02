@@ -90,7 +90,7 @@ const handleFilter = () => {
 
 const handleReset = async () => {
   console.log('handleReset', query.model)
-  await (emitRegister as any).resetFields()
+  await (emitRegister as unknown as { resetFields: () => Promise<void> }).resetFields()
   handleFilter()
 }
 //#endregion
