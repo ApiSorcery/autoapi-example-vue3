@@ -1,7 +1,7 @@
 import { computed, reactive } from 'vue'
 import type { CommonTable, TableField } from '#/castor-antd'
 
-export default function useCommonTable() {
+export default function useCommonTable({ optionsMap }) {
   const columns = computed<Array<TableField>>(() => {
     return [
       {
@@ -42,11 +42,14 @@ export default function useCommonTable() {
         }
       },
       {
-        type: 'default',
+        type: 'status',
         label: '性别',
         dataField: 'gender',
         elementProps: {
           width: '120px'
+        },
+        extendProps: {
+          options: optionsMap['gender']
         }
       },
       {

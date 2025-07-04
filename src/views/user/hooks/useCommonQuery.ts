@@ -34,7 +34,7 @@ export default function useCommonQuery() {
   const query = reactive<CommonQuery>({
     loading: false,
     model: {
-      code: 'zhang',
+      code: '',
       name: '',
     },
     fields,

@@ -33,7 +33,11 @@ defineOptions({
 })
 const dayjs = inject('dayjs') as (arg?: string) => Dayjs
 const optionsMap = reactive<Record<string, SelectItem[]>>({
-  sex: [
+  gender: [
+    {
+      value: 0,
+      label: '未知'
+    },
     {
       value: 1,
       label: '男'
@@ -41,18 +45,6 @@ const optionsMap = reactive<Record<string, SelectItem[]>>({
     {
       value: 2,
       label: '女'
-    }
-  ],
-  equipment: [
-    {
-      value: 'double',
-      label: '双压记录仪',
-      disabled: false
-    },
-    {
-      value: 'remote',
-      label: '压力远传处理仪',
-      disabled: false
     }
   ],
   status: [
@@ -80,7 +72,7 @@ const optionsMap = reactive<Record<string, SelectItem[]>>({
 })
 
 const query = useCommonQuery()
-const table = useCommonTable()
+const table = useCommonTable({ optionsMap })
 const form = useCommonForm({ optionsMap })
 
 //#region query
