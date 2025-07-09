@@ -150,6 +150,9 @@ const handleDelete = ({ index, row }) => {
       message.info('已取消删除')
     },
     onOk: async () => {
+      await apiUser.removeUser({
+        id: row.id
+      })
       message.success('删除成功!', 1, getList)
     }
   })
