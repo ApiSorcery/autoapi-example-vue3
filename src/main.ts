@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import Castor3UI from '@neweratech/castor3-ui'
 import dayjsWrapper from '@/utils/dayjs'
 import App from '@/App.vue'
+import '@neweratech/castor3-ui/es/style.css'
 
 const app = createApp(App)
 app.use(Castor3UI)
