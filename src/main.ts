@@ -1,11 +1,11 @@
 import { createApp } from 'vue'
-import Castor3UI from '@neweratech/castor3-ui'
+import CastorAntdv from '@castor-ui/castor-antdv'
 import dayjsWrapper from '@/utils/dayjs'
 import App from '@/App.vue'
-import '@neweratech/castor3-ui/es/style.css'
+import '@castor-ui/castor-antdv/es/style.css'
 
 const app = createApp(App)
-app.use(Castor3UI)
+app.use(CastorAntdv)
 
 /** 挂载全局变量 dayjs */
 app.provide('dayjs', dayjsWrapper)
