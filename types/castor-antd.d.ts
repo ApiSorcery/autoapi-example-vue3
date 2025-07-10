@@ -22,9 +22,6 @@ export interface SelectItem {
   value: string | number
   disabled?: boolean
   color?: string
-  dateRange?: string[]
-  xAxisdateFormat?: string
-  queryDateFormat?: string
 }
 
 /** 通用表格字段 */
@@ -37,7 +34,8 @@ export interface TableField {
     options?: Array<SelectItem>
     commands?: Array<CommonCommand>
     linkCommand?: string
-    componentKey?: string
+    componentKey?: string,
+    subElementProps?: object
   }
 }
 
@@ -59,24 +57,25 @@ export interface QueryField {
 /** 通用表单字段 */
 export interface FormField {
   type:
-    | 'text'
-    | 'select'
-    | 'date'
-    | 'dateRange'
-    | 'time'
-    | 'timeRange'
-    | 'textArea'
-    | 'groupTitle'
-    | 'checkboxGroup'
-    | 'radioGroup'
-    | 'custom'
-    | 'upload'
-    | 'status'
-    | 'inputNumber'
-    | 'autocomplete'
-    | 'switch'
-    | 'space'
-    | 'default'
+  | 'text'
+  | 'select'
+  | 'date'
+  | 'dateRange'
+  | 'time'
+  | 'timeRange'
+  | 'textArea'
+  | 'groupTitle'
+  | 'checkboxGroup'
+  | 'radioGroup'
+  | 'custom'
+  | 'upload'
+  | 'status'
+  | 'inputNumber'
+  | 'autocomplete'
+  | 'switch'
+  | 'space'
+  | 'image'
+  | 'default'
   label: string
   dataField: string
   columnSpan: number
@@ -116,6 +115,13 @@ export interface FormFieldExtendProps {
   showInFooter?: boolean
   /** 分值标题-副标题 */
   subTitle?: string
+  /** 图片选项 */
+  imageOptions?: {
+    width?: string
+    height?: string
+    radius?: string
+    style?: Object
+  }
 }
 
 /** 通用表单 */
