@@ -1,6 +1,5 @@
-import { computed, reactive, shallowRef } from 'vue'
+import { computed, reactive } from 'vue'
 import type { CommonTable, TableField } from '#/castor-antd'
-import ImageColumn from '../components/ImageColumn.vue'
 
 export default function useCommonTable({ optionsMap }) {
   const columns = computed<Array<TableField>>(() => {
@@ -10,8 +9,8 @@ export default function useCommonTable({ optionsMap }) {
         label: '序号',
         dataField: 'index',
         elementProps: {
-          width: '60px '
-        }
+          width: '60px ',
+        },
       },
       {
         type: 'link',
@@ -19,11 +18,11 @@ export default function useCommonTable({ optionsMap }) {
         dataField: 'code',
         elementProps: {
           width: '120px',
-          align: 'center'
+          align: 'center',
         },
         extendProps: {
-          linkCommand: 'handleLink'
-        }
+          linkCommand: 'handleLink',
+        },
       },
 
       {
@@ -31,63 +30,66 @@ export default function useCommonTable({ optionsMap }) {
         label: '姓名',
         dataField: 'name',
         elementProps: {
-          width: '100px'
-        }
+          width: '100px',
+        },
       },
       {
         type: 'default',
         label: '邮箱',
         dataField: 'email',
         elementProps: {
-          width: '180px'
-        }
+          width: '180px',
+        },
       },
       {
         type: 'status',
         label: '性别',
         dataField: 'gender',
         elementProps: {
-          width: '120px'
+          width: '120px',
         },
         extendProps: {
-          options: optionsMap['gender']
-        }
+          options: optionsMap['gender'],
+        },
       },
       {
-        type: 'custom',
+        type: 'image',
         label: '头像',
         dataField: 'avatar',
         elementProps: {
           width: '70px',
-          align: 'center'
+          align: 'center',
         },
         extendProps: {
-          componentKey: 'imageColumn',
-        }
+          subElementProps: {
+            width: 50,
+            height: 50,
+          },
+        },
       },
       {
         type: 'default',
         label: '地址',
         dataField: 'address',
         elementProps: {
-          width: '240px'
-        }
+          width: '240px',
+        },
       },
       {
         type: 'default',
         label: '上次修改时间',
         dataField: 'updatedAt',
         elementProps: {
-          width: '180px'
-        }
+          width: '180px',
+        },
       },
       {
         type: 'default',
         label: '创建时间',
         dataField: 'createdAt',
         elementProps: {
-          width: '180px'
-        }
+          width: '180px',
+        },
       },
       {
         type: 'commands',
@@ -95,7 +97,7 @@ export default function useCommonTable({ optionsMap }) {
         dataField: 'commands',
         elementProps: {
           fixed: 'right',
-          width: '160px'
+          width: '160px',
         },
         extendProps: {
           commands: [
@@ -103,18 +105,18 @@ export default function useCommonTable({ optionsMap }) {
               text: '编辑',
               command: 'handleEdit',
               disableValidator: ({ row }: { row: any }) => row.id === 2,
-              visibleValidator: ({ row }: { row: any }) => row.id >= 2
+              visibleValidator: ({ row }: { row: any }) => row.id >= 2,
             },
             {
               text: '删除',
               command: 'handleDelete',
               elementProps: {
-                danger: true
-              }
-            }
-          ]
-        }
-      }
+                danger: true,
+              },
+            },
+          ],
+        },
+      },
     ]
   })
 
@@ -127,17 +129,14 @@ export default function useCommonTable({ optionsMap }) {
       text: '新建',
       command: 'handleAdd',
       visibleValidator: () => true,
-      disableValidator: () => { }
+      disableValidator: () => {},
     },
     pagination: {
       current: 1,
       pageSize: 10,
-      total: 0
+      total: 0,
     },
     elementProps: {},
-    customComponents: {
-      imageColumn: shallowRef(ImageColumn)
-    },
   })
 
   return table
