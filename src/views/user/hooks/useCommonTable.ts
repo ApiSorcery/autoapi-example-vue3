@@ -1,5 +1,6 @@
-import { computed, reactive } from 'vue'
+import { computed, reactive, shallowRef } from 'vue'
 import type { CommonTable, TableField } from '#/castor-antd'
+import ImageColumn from '../components/ImageColumn.vue'
 
 export default function useCommonTable({ optionsMap }) {
   const columns = computed<Array<TableField>>(() => {
@@ -53,11 +54,15 @@ export default function useCommonTable({ optionsMap }) {
         }
       },
       {
-        type: 'default',
+        type: 'custom',
         label: '头像',
         dataField: 'avatar',
         elementProps: {
-          width: '120px'
+          width: '70px',
+          align: 'center'
+        },
+        extendProps: {
+          componentKey: 'imageColumn',
         }
       },
       {
@@ -129,7 +134,10 @@ export default function useCommonTable({ optionsMap }) {
       pageSize: 10,
       total: 0
     },
-    elementProps: {}
+    elementProps: {},
+    customComponents: {
+      imageColumn: shallowRef(ImageColumn)
+    },
   })
 
   return table
