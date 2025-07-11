@@ -23,7 +23,7 @@ export const setFormValue = (model, data) => {
   console.log('setFormValue', model, data)
   nextTick(() => {
     Object.keys(model).forEach((field) => {
-      if (Object.hasOwn(data, field)) {
+      if (Object.prototype.hasOwnProperty.call(data, field)) {
         model[field] = data[field]
       }
     })
