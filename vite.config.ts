@@ -21,9 +21,8 @@ export default defineConfig(({ mode }) => {
       port: Number(env.VITE_PORT),
       proxy: {
         [env.VITE_GLOB_BASE_API]: {
-          // target: 'http://150.158.52.214:9015/', // Prod
-          // target: 'http://localhost:9002/', // QA
-          target: 'http://localhost:9005/', // Local
+          target: 'http://150.158.52.214:9015/', // Prod
+          // target: 'http://localhost:9005/', // Local
           changeOrigin: true,
           rewrite: (path) => path.replace(new RegExp(`^${env.VITE_GLOB_BASE_API}`), ''),
         },
