@@ -1,11 +1,7 @@
 import { computed, reactive } from 'vue'
 import { message } from 'ant-design-vue'
 import type { UploadChangeParam } from 'ant-design-vue'
-import type {
-  FormField,
-  CommonForm,
-  CommonCommand,
-} from '@castor-ui/castor-antdv/es/types/castor-antd'
+import type { FormField, CommonForm, CommonCommand } from '@castor-ui/castor-antdv'
 import * as apiUser from '@/apis/auto/demo/ApiUser'
 
 export default function useCommonForm({ optionsMap }: { optionsMap: Record<string, any> }) {

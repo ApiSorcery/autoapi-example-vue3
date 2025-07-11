@@ -1,8 +1,5 @@
 import { computed, reactive } from 'vue'
-import type {
-  CommonQuery,
-  QueryField,
-} from '@castor-ui/castor-antdv/es/types/castor-antd'
+import type { CommonQuery, QueryField } from '@castor-ui/castor-antdv'
 
 export default function useCommonQuery({ optionsMap }: { optionsMap: Record<string, any> }) {
   const fields = computed<Array<QueryField>>(() => {

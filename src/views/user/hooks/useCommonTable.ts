@@ -1,5 +1,5 @@
 import { computed, reactive } from 'vue'
-import type { CommonTable, TableField } from '@castor-ui/castor-antdv/es/types/castor-antd'
+import type { CommonTable, TableField } from '@castor-ui/castor-antdv'
 
 export default function useCommonTable({ optionsMap }) {
   const columns = computed<Array<TableField>>(() => {

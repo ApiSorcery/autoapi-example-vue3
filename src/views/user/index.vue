@@ -21,7 +21,7 @@
 import { inject, reactive } from 'vue'
 import { Dayjs } from 'dayjs'
 import { message, Modal } from 'ant-design-vue'
-import type { SelectItem } from '@castor-ui/castor-antdv/es/types/castor-antd'
+import type { SelectItem } from '@castor-ui/castor-antdv'
 import { resetForm, setFormValue } from '@/hooks/useModal'
 import useCommonTable from './hooks/useCommonTable'
 import useCommonQuery from './hooks/useCommonQuery'
