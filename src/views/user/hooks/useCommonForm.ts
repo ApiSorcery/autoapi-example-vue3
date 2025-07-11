@@ -112,7 +112,7 @@ export default function useCommonForm({ optionsMap }: { optionsMap: Record<strin
 
   const form = reactive<CommonForm>({
     loading: false,
-    visible: true,
+    visible: false,
     title: '新建用户',
     operateType: 'add',
     model: {

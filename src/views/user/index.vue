@@ -49,19 +49,19 @@ const optionsMap = reactive<Record<string, SelectItem[]>>({
   ],
   status: [
     {
-      value: 0,
+      value: false,
       label: '未启用',
-      color: '#4a90e2'
+      color: 'gray'
     },
     {
-      value: 1,
+      value: true,
       label: '已启用',
-      color: '#f5a623'
+      color: '#1677ff'
     },
   ]
 })
 
-const query = useCommonQuery()
+const query = useCommonQuery({ optionsMap })
 const table = useCommonTable({ optionsMap })
 const form = useCommonForm({ optionsMap })
 

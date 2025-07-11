@@ -1,7 +1,7 @@
 import { computed, reactive } from 'vue'
 import type { CommonQuery, QueryField } from '#/castor-antd'
 
-export default function useCommonQuery() {
+export default function useCommonQuery({ optionsMap }: { optionsMap: Record<string, any> }) {
   const fields = computed<Array<QueryField>>(() => {
     return [
       {
@@ -12,9 +12,9 @@ export default function useCommonQuery() {
         extendProps: {
           formItemProps: {
             labelCol: { style: { width: '40px' } },
-            wrapperCol: { style: { width: '200px' } }
-          }
-        }
+            wrapperCol: { style: { width: '200px' } },
+          },
+        },
       },
       {
         type: 'default',
@@ -24,9 +24,24 @@ export default function useCommonQuery() {
         extendProps: {
           formItemProps: {
             labelCol: { style: { width: '40px' } },
-            wrapperCol: { style: { width: '120px' } }
-          }
-        }
+            wrapperCol: { style: { width: '120px' } },
+          },
+        },
+      },
+      {
+        type: 'select',
+        label: '状态',
+        dataField: 'status',
+        columnSpan: 1,
+        elementProps: {
+          options: optionsMap['status'],
+        },
+        extendProps: {
+          formItemProps: {
+            labelCol: { style: { width: '40px' } },
+            wrapperCol: { style: { width: '120px' } },
+          },
+        },
       },
     ]
   })
@@ -43,19 +58,19 @@ export default function useCommonQuery() {
         text: '查询',
         command: 'handleFilter',
         elementProps: {
-          type: 'primary'
+          type: 'primary',
         },
-        canKeyDown: true
+        canKeyDown: true,
       },
       {
         text: '重置',
-        command: 'handleReset'
-      }
+        command: 'handleReset',
+      },
     ],
     elementProps: {
       labelCol: { style: { width: '40px' } },
-      wrapperCol: { style: { flex: 1 } }
-    }
+      wrapperCol: { style: { flex: 1 } },
+    },
   })
 
   return query

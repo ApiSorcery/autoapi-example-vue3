@@ -76,6 +76,17 @@ export default function useCommonTable({ optionsMap }) {
         },
       },
       {
+        type: 'status',
+        label: '状态',
+        dataField: 'status',
+        elementProps: {
+          width: '120px',
+        },
+        extendProps: {
+          options: optionsMap['status'],
+        },
+      },
+      {
         type: 'default',
         label: '上次修改时间',
         dataField: 'updatedAt',
