@@ -18,11 +18,11 @@
 </template>
 
 <script lang="ts" setup>
-import { message, Modal } from 'ant-design-vue'
 import { inject, reactive } from 'vue'
 import { Dayjs } from 'dayjs'
-import type { SelectItem } from '#/castor-antd'
-import { resetForm, setFormValue } from '@/hooks/component/useModal'
+import { message, Modal } from 'ant-design-vue'
+import type { SelectItem } from '@castor-ui/castor-antdv'
+import { resetForm, setFormValue } from '@/hooks/useModal'
 import useCommonTable from './hooks/useCommonTable'
 import useCommonQuery from './hooks/useCommonQuery'
 import useCommonForm from './hooks/useCommonForm'
