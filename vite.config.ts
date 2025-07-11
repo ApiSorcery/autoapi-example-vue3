@@ -10,9 +10,6 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, root)
   return {
     base: env.VITE_GLOB_PUBLIC_PATH,
-    build: {
-      outDir: 'docs',
-    },
     plugins: [vue(), vueDevTools()],
     resolve: {
       alias: {
