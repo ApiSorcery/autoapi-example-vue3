@@ -4,7 +4,7 @@ import dayjsWrapper from '@/utils/dayjs'
 import App from '@/App.vue'
 import { registerGlobComp } from '@/components/registerGlobComp'
 
-import '@castor-ui/castor-antdv/es/castor-antdv.css'
+import '@castor-ui/castor-antdv/es/style.css'
 
 const app = createApp(App)
 app.use(CastorAntdv)
