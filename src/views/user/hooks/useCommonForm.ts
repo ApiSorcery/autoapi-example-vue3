@@ -46,7 +46,7 @@ export default function useCommonForm({ optionsMap }: { optionsMap: Record<strin
         type: 'image',
         label: '头像',
         dataField: 'avatar',
-        columnSpan: 2,
+        columnSpan: 1,
         elementProps: {
           action: `${import.meta.env.VITE_GLOB_BASE_API}/file/upload`,
           beforeUpload: handleBeforeUpload,
@@ -60,20 +60,12 @@ export default function useCommonForm({ optionsMap }: { optionsMap: Record<strin
           },
         },
       },
-      // {
-      //   type: 'status',
-      //   label: '',
-      //   dataField: 'status',
-      //   columnSpan: 1,
-      //   extendProps: {
-      //     showInFooter: true,
-      //     statusOptions: optionsMap['status'],
-      //     formItemStyle: {
-      //       marginBottom: 0,
-      //       width: '80px',
-      //     },
-      //   },
-      // },
+      {
+        type: 'switch',
+        label: '是否启用',
+        dataField: 'status',
+        columnSpan: 1,
+      },
     ]
   })
 
@@ -131,7 +123,7 @@ export default function useCommonForm({ optionsMap }: { optionsMap: Record<strin
       gender: null,
       avatar: '',
       address: '',
-      // status: 0,
+      status: false,
     },
     fields,
     commands: [

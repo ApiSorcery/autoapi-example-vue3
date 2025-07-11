@@ -10,13 +10,10 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, root)
   return {
     base: env.VITE_GLOB_PUBLIC_PATH,
-    plugins: [
-      vue(),
-      vueDevTools(),
-    ],
+    plugins: [vue(), vueDevTools()],
     resolve: {
       alias: {
-        '@': fileURLToPath(new URL('./src', import.meta.url))
+        '@': fileURLToPath(new URL('./src', import.meta.url)),
       },
     },
     server: {
