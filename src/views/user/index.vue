@@ -49,25 +49,15 @@ const optionsMap = reactive<Record<string, SelectItem[]>>({
   ],
   status: [
     {
-      value: 4,
-      label: '未开始',
+      value: 0,
+      label: '未启用',
       color: '#4a90e2'
     },
     {
       value: 1,
-      label: '进行中',
+      label: '已启用',
       color: '#f5a623'
     },
-    {
-      value: 2,
-      label: '已驳回',
-      color: '#d0021b'
-    },
-    {
-      value: 3,
-      label: '已完成',
-      color: '#3d1ab7'
-    }
   ]
 })
 
