@@ -4,7 +4,7 @@ import responseInterceptor from '../interceptors/response'
 
 // 创建 axios 实例   withCredentials: true,
 const requestClient = axios.create({
-  baseURL: '/api',
+  baseURL: import.meta.env.VITE_GLOB_BASE_API,
   timeout: 60000,
   responseType: 'blob',
   headers: {
