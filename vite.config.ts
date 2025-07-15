@@ -21,7 +21,7 @@ export default defineConfig(({ mode }) => {
       port: Number(env.VITE_PORT),
       proxy: {
         [env.VITE_GLOB_BASE_API]: {
-          target: 'http://150.158.52.214:9015/', // Prod
+          target: 'https://apisorcery.com/demo-api/', // Prod
           // target: 'http://localhost:9005/', // Local
           changeOrigin: true,
           rewrite: (path) => path.replace(new RegExp(`^${env.VITE_GLOB_BASE_API}`), ''),
