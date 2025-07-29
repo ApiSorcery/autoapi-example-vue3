@@ -1,3 +1,4 @@
+deploy_prod.sh
 # Logs
 logs
 *.log
