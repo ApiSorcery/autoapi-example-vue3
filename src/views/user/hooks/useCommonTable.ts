@@ -134,7 +134,7 @@ export default function useCommonTable({ optionsMap }) {
   const table = reactive<CommonTable>({
     loading: false,
     title: 'User Information',
-    dataSource: [] as Array<Object>,
+    dataSource: [] as Array<object>,
     columns,
     addCommand: {
       text: 'Create',
