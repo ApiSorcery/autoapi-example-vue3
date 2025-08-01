@@ -6,7 +6,7 @@ export default function useCommonTable({ optionsMap }) {
     return [
       {
         type: 'index',
-        label: '序号',
+        label: 'No.',
         dataField: 'index',
         elementProps: {
           width: '60px ',
@@ -14,7 +14,7 @@ export default function useCommonTable({ optionsMap }) {
       },
       {
         type: 'link',
-        label: '编号',
+        label: 'Code',
         dataField: 'code',
         elementProps: {
           width: '120px',
@@ -27,7 +27,7 @@ export default function useCommonTable({ optionsMap }) {
 
       {
         type: 'default',
-        label: '姓名',
+        label: 'Name',
         dataField: 'name',
         elementProps: {
           width: '100px',
@@ -35,7 +35,7 @@ export default function useCommonTable({ optionsMap }) {
       },
       {
         type: 'default',
-        label: '邮箱',
+        label: 'Email',
         dataField: 'email',
         elementProps: {
           width: '180px',
@@ -43,7 +43,7 @@ export default function useCommonTable({ optionsMap }) {
       },
       {
         type: 'status',
-        label: '性别',
+        label: 'Gender',
         dataField: 'gender',
         elementProps: {
           width: '120px',
@@ -54,10 +54,10 @@ export default function useCommonTable({ optionsMap }) {
       },
       {
         type: 'image',
-        label: '头像',
+        label: 'Avatar',
         dataField: 'avatar',
         elementProps: {
-          width: '70px',
+          width: '80px',
           align: 'center',
         },
         extendProps: {
@@ -69,7 +69,7 @@ export default function useCommonTable({ optionsMap }) {
       },
       {
         type: 'default',
-        label: '地址',
+        label: 'Address',
         dataField: 'address',
         elementProps: {
           width: '240px',
@@ -77,7 +77,7 @@ export default function useCommonTable({ optionsMap }) {
       },
       {
         type: 'status',
-        label: '状态',
+        label: 'Status',
         dataField: 'status',
         elementProps: {
           width: '120px',
@@ -88,7 +88,7 @@ export default function useCommonTable({ optionsMap }) {
       },
       {
         type: 'default',
-        label: '上次修改时间',
+        label: 'Last Modified',
         dataField: 'updatedAt',
         elementProps: {
           width: '180px',
@@ -96,7 +96,7 @@ export default function useCommonTable({ optionsMap }) {
       },
       {
         type: 'default',
-        label: '创建时间',
+        label: 'Created',
         dataField: 'createdAt',
         elementProps: {
           width: '180px',
@@ -104,7 +104,7 @@ export default function useCommonTable({ optionsMap }) {
       },
       {
         type: 'commands',
-        label: '操作',
+        label: 'Actions',
         dataField: 'commands',
         elementProps: {
           fixed: 'right',
@@ -113,13 +113,13 @@ export default function useCommonTable({ optionsMap }) {
         extendProps: {
           commands: [
             {
-              text: '编辑',
+              text: 'Edit',
               command: 'handleEdit',
               disableValidator: ({ row }: { row: any }) => row.id === 2,
               visibleValidator: ({ row }: { row: any }) => row.id >= 2,
             },
             {
-              text: '删除',
+              text: 'Delete',
               command: 'handleDelete',
               elementProps: {
                 danger: true,
@@ -133,11 +133,11 @@ export default function useCommonTable({ optionsMap }) {
 
   const table = reactive<CommonTable>({
     loading: false,
-    title: '用户信息',
+    title: 'User Information',
     dataSource: [] as Array<Object>,
     columns,
     addCommand: {
-      text: '新建',
+      text: 'Create',
       command: 'handleAdd',
       visibleValidator: () => true,
       disableValidator: () => {},

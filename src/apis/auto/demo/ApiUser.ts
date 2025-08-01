@@ -1,9 +1,9 @@
-/// 用户管理
+/// User
 import * as base from './base';
 import * as Model from './model';
 
 /**
- * 新增用户
+ * Add user
  */
 export const addUser = base.createJsonRequest<Model.UserAddRequestDto,number>((data) => ({
   url: `/user`,
@@ -12,7 +12,7 @@ export const addUser = base.createJsonRequest<Model.UserAddRequestDto,number>((d
 }))
 
 /**
- * 批量导出用户（Excel）
+ * Batch export users (Excel)
  */
 export const exportUsers = base.createDownloadRequest<Model.ExportUsersRequest>((req) => ({
   url: `/user/export`,
@@ -21,7 +21,7 @@ export const exportUsers = base.createDownloadRequest<Model.ExportUsersRequest>(
 }))
 
 /**
- * 获取单个用户
+ * Get single user
  */
 export const getUserOne = base.createJsonRequest<Model.GetUserOneRequest,Model.UserInfoDto>((req) => ({
   url: `/user/${req.id}`,
@@ -29,7 +29,7 @@ export const getUserOne = base.createJsonRequest<Model.GetUserOneRequest,Model.U
 }))
 
 /**
- * 分页查询用户列表
+ * Query user list with pagination
  */
 export const getUserPaged = base.createJsonRequest<Model.UserPageQueryDto,Model.GetUserPagedResponse>((data) => ({
   url: `/user/paged`,
@@ -38,7 +38,7 @@ export const getUserPaged = base.createJsonRequest<Model.UserPageQueryDto,Model.
 }))
 
 /**
- * 修改用户信息
+ * Modify user information
  */
 export const modifyUser = base.createJsonRequest<Model.UserModifyRequestDto>((data) => ({
   url: `/user`,
@@ -47,7 +47,7 @@ export const modifyUser = base.createJsonRequest<Model.UserModifyRequestDto>((da
 }))
 
 /**
- * 删除用户
+ * Delete user
  */
 export const removeUser = base.createJsonRequest<Model.RemoveUserRequest>((req) => ({
   url: `/user/${req.id}`,
@@ -55,7 +55,7 @@ export const removeUser = base.createJsonRequest<Model.RemoveUserRequest>((req) 
 }))
 
 /**
- * 校验用户编号是否存在
+ * Validate if user code exists
  */
 export const validateCode = base.createJsonRequest<Model.ValidateCodeRequest,boolean>((req) => ({
   url: `/user/validateCode`,
@@ -64,7 +64,7 @@ export const validateCode = base.createJsonRequest<Model.ValidateCodeRequest,boo
 }))
 
 /**
- * 校验用户邮箱是否存在
+ * Validate if user email exists
  */
 export const validateEmail = base.createJsonRequest<Model.ValidateEmailRequest,boolean>((req) => ({
   url: `/user/validateEmail`,

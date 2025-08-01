@@ -6,31 +6,31 @@ export default function useCommonQuery({ optionsMap }: { optionsMap: Record<stri
     return [
       {
         type: 'default',
-        label: '编号',
+        label: 'Code',
         dataField: 'code',
         columnSpan: 1,
         extendProps: {
           formItemProps: {
-            labelCol: { style: { width: '40px' } },
+            labelCol: { style: { width: '50px' } },
             wrapperCol: { style: { width: '200px' } },
           },
         },
       },
       {
         type: 'default',
-        label: '姓名',
+        label: 'Name',
         dataField: 'name',
         columnSpan: 1,
         extendProps: {
           formItemProps: {
-            labelCol: { style: { width: '40px' } },
+            labelCol: { style: { width: '50px' } },
             wrapperCol: { style: { width: '120px' } },
           },
         },
       },
       {
         type: 'select',
-        label: '状态',
+        label: 'Status',
         dataField: 'status',
         columnSpan: 1,
         elementProps: {
@@ -38,7 +38,7 @@ export default function useCommonQuery({ optionsMap }: { optionsMap: Record<stri
         },
         extendProps: {
           formItemProps: {
-            labelCol: { style: { width: '40px' } },
+            labelCol: { style: { width: '56px' } },
             wrapperCol: { style: { width: '120px' } },
           },
         },
@@ -55,7 +55,7 @@ export default function useCommonQuery({ optionsMap }: { optionsMap: Record<stri
     fields,
     commands: [
       {
-        text: '查询',
+        text: 'Search',
         command: 'handleFilter',
         elementProps: {
           type: 'primary',
@@ -63,7 +63,7 @@ export default function useCommonQuery({ optionsMap }: { optionsMap: Record<stri
         canKeyDown: true,
       },
       {
-        text: '重置',
+        text: 'Reset',
         command: 'handleReset',
       },
     ],

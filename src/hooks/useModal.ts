@@ -1,9 +1,9 @@
 import { nextTick } from 'vue'
 
 /**
- * 重置表单（清空校验结果、重置字段值）
- * @param form 表单对象
- * @param callback 回调事件
+ * Reset form (clear validation results, reset field values)
+ * @param form Form object
+ * @param callback Callback event
  */
 export const resetForm = ({ form, callback }) => {
   ;(form.emitRegister as any).clearValidate()
@@ -14,10 +14,10 @@ export const resetForm = ({ form, callback }) => {
 }
 
 /**
- * 更新表单绑定对象值
- * 【注：部分更新，只更新两者都拥有的字段】
- * @param model 表单绑定对象
- * @param data 新设定的数据对象
+ * Update form binding object values
+ * Note: Partial update, only updates fields that both objects have
+ * @param model Form binding object
+ * @param data New data object
  */
 export const setFormValue = (model, data) => {
   console.log('setFormValue', model, data)

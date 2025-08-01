@@ -1,69 +1,76 @@
-/** 二进制数据返回类型 */
+/** Binary data response type */
 export interface BlobResp {
-  /** 文件内容 */
+  /** File content */
   data: Blob;
 
-  /** 文件类型 */
+  /** File type */
   type: String;
 
-  /** 文件名 */
+  /** File name */
   name: String;
 }
 
-/** 批量导出用户（Excel）请求参数 */
+/** Batch export users (Excel) request parameters */
 export interface ExportUsersRequest {
+  /** User code */
   code: string;
 
+  /** User name */
   name: string;
 
+  /** Email address */
   email: string;
 }
 
-/** 获取单个用户请求参数 */
+/** Get single user request parameters */
 export interface GetUserOneRequest {
-  id: string;
-}
-
-/** 删除用户请求参数 */
-export interface RemoveUserRequest {
+  /** User ID */
   id: number;
 }
 
-/** 校验用户编号是否存在请求参数 */
+/** Delete user request parameters */
+export interface RemoveUserRequest {
+  /** User ID */
+  id: number;
+}
+
+/** Validate if user code exists request parameters */
 export interface ValidateCodeRequest {
+  /** User code */
   code: string;
 }
 
-/** 校验用户邮箱是否存在请求参数 */
+/** Validate if user email exists request parameters */
 export interface ValidateEmailRequest {
+  /** Email address */
   email: string;
 }
 
-/** 删除文件请求参数 */
+/** Delete file request parameters */
 export interface DeleteFileRequest {
-  /** 文件UUID */
+  /** File UUID */
   id: string;
 }
 
-/** 获取文件请求参数 */
+/** Get file request parameters */
 export interface GetFileRequest {
-  /** 文件UUID */
+  /** File UUID */
   id: string;
 }
 
-/** 上传文件请求参数 */
+/** Upload file request parameters */
 export interface UploadFileRequest {
-  /** 要上传的文件 */
+  /** File to upload */
   file?: File;
 
-  /** 文件描述（可选） */
+  /** File description (optional) */
   description?: string;
 
-  /** 上传进度回调函数 */
+  /** Upload progress callback function */
   onUploadProgress: (progressEvent: ProgressEvent) => void;
 }
 
-/** 分页查询用户列表应答参数 */
+/** Query user list with pagination response parameters */
 export interface GetUserPagedResponse {
   results: Array<UserInfoDto>;
 
@@ -72,17 +79,17 @@ export interface GetUserPagedResponse {
 
 export interface ResultData {
 /**
- * 状态码
+ * Status code
  */
   status: number;
 
 /**
- * 状态描述
+ * Status description
  */
   message: string;
 
 /**
- * 返回结果
+ * Response data
  */
   data: any;
 
@@ -90,73 +97,75 @@ export interface ResultData {
 
 export interface UserInfoDto {
 /**
- * 用户ID
+ * User ID
  */
   id: number;
 
 /**
- * 用户编号
+ * User code
  */
   code: string;
 
 /**
- * 用户名称
+ * User name
  */
   name: string;
 
 /**
- * 邮箱
+ * Email
  */
   email: string;
 
 /**
- * 性别
+ * Gender
  */
   gender?: number;
 
 /**
- * 头像
+ * Avatar
  */
   avatar?: string;
 
 /**
- * 地址
+ * Address
  */
   address?: string;
 
 /**
- * 创建时间
+ * Status
+ */
+  status?: boolean;
+
+/**
+ * Created time
  */
   createdAt: string;
 
 /**
- * 更新时间
+ * Updated time
  */
   updatedAt?: string;
 
 }
 
-export interface User {
-}
-
 export interface Pagination {
 /**
- * 页码
+ * Page number
  */
   page?: number;
 
 /**
- * 每页数量
+ * Items per page
  */
   limit?: number;
 
 /**
- * 排序字段
+ * Sort field
  */
   sortBy?: string;
 
 /**
- * 排序方式
+ * Sort order
  */
   order?: string;
 
@@ -164,89 +173,104 @@ export interface Pagination {
 
 export interface UserPageQueryDto {
 /**
- * 分页参数
+ * Pagination parameters
  */
   pagination?: Pagination;
 
 /**
- * 用户编码
+ * User code
  */
   code?: string;
 
 /**
- * 用户姓名
+ * User name
  */
   name?: string;
+
+/**
+ * User status
+ */
+  status?: boolean;
 
 }
 
 export interface UserAddRequestDto {
 /**
- * 用户编号
+ * User code
  */
   code: string;
 
 /**
- * 用户名称
+ * User name
  */
   name: string;
 
 /**
- * 邮箱
+ * Email
  */
   email: string;
 
 /**
- * 性别
+ * Gender
  */
   gender?: number;
 
 /**
- * 头像
+ * Avatar
  */
   avatar?: string;
 
 /**
- * 地址
+ * Address
  */
   address?: string;
+
+/**
+ * Status
+ */
+  status?: boolean;
 
 }
 
 export interface UserModifyRequestDto {
 /**
- * 用户ID
+ * User ID
  */
   id: number;
 
 /**
- * 用户编号
+ * User code
  */
   code?: string;
 
 /**
- * 用户名称
+ * User name
  */
   name?: string;
 
 /**
- * 邮箱
+ * Email
  */
   email?: string;
 
 /**
- * 性别
+ * Gender
  */
   gender?: number;
 
 /**
- * 头像
+ * Avatar
  */
   avatar?: string;
 
 /**
- * 地址
+ * Address
  */
   address?: string;
+
+/**
+ * Status
+ */
+  status?: boolean;
 
 }

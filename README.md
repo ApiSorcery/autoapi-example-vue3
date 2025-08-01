@@ -1,13 +1,13 @@
 # autoapi-example-vue3
 
-AutoAPI示例项目Vue3版本
+AutoAPI Example Project Vue3 Version
 
-- node版本：22.17.1
-- npm版本：10.8.1
-- vue版本：3.5.16
-- vite版本：6.3.5
-- autoapi版本：1.0.9+
+- Node version: 22.17.1
+- npm version: 10.8.1
+- Vue version: 3.5.16
+- Vite version: 6.3.5
+- AutoAPI version: 1.0.9+
 
 ## Getting Started
 
-参考官方文档
+Refer to the [official documentation](https://apisorcery.com/)

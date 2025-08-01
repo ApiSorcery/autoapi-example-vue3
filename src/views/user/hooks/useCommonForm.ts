@@ -9,27 +9,27 @@ export default function useCommonForm({ optionsMap }: { optionsMap: Record<strin
     return [
       {
         type: 'default',
-        label: '编号',
+        label: 'Code',
         dataField: 'code',
         columnSpan: 1,
         disableValidator: ({ operateType }) => operateType !== 'add',
       },
       {
         type: 'default',
-        label: '姓名',
+        label: 'Name',
         dataField: 'name',
         columnSpan: 1,
-        rules: [{ required: true, message: '不能为空' }],
+        rules: [{ required: true, message: 'Cannot be empty' }],
       },
       {
         type: 'default',
-        label: '邮箱',
+        label: 'Email',
         dataField: 'email',
         columnSpan: 1,
       },
       {
         type: 'radioGroup',
-        label: '性别',
+        label: 'Gender',
         dataField: 'gender',
         columnSpan: 1,
         elementProps: {
@@ -38,13 +38,13 @@ export default function useCommonForm({ optionsMap }: { optionsMap: Record<strin
       },
       {
         type: 'textArea',
-        label: '地址',
+        label: 'Address',
         dataField: 'address',
         columnSpan: 2,
       },
       {
         type: 'image',
-        label: '头像',
+        label: 'Avatar',
         dataField: 'avatar',
         columnSpan: 1,
         elementProps: {
@@ -62,7 +62,7 @@ export default function useCommonForm({ optionsMap }: { optionsMap: Record<strin
       },
       {
         type: 'switch',
-        label: '是否启用',
+        label: 'Enabled',
         dataField: 'status',
         columnSpan: 1,
       },
@@ -79,7 +79,7 @@ export default function useCommonForm({ optionsMap }: { optionsMap: Record<strin
       } else {
         await apiUser.addUser(form.model)
       }
-      await message.success('保存成功', 1)
+      await message.success('Saved successfully', 1)
       form.visible = false
     } finally {
       command.loading = false
@@ -100,10 +100,10 @@ export default function useCommonForm({ optionsMap }: { optionsMap: Record<strin
 
   const handleBeforeUpload = (file: File) => {
     console.log('handleBeforeUpload', file)
-    // 文件上传上限设置
+    // File upload size limit setting
     const size: number = Number((file.size / 1024 / 1024).toFixed(2))
     if (size > 10) {
-      message.warning('文件大小超过上限(10MB)，请重新选择！')
+      message.warning('File size exceeds limit (10MB), please select again!')
       return false
     } else {
       return true
@@ -113,7 +113,7 @@ export default function useCommonForm({ optionsMap }: { optionsMap: Record<strin
   const form = reactive<CommonForm>({
     loading: false,
     visible: false,
-    title: '新建用户',
+    title: 'Create User',
     operateType: 'add',
     model: {
       id: undefined,
@@ -128,11 +128,11 @@ export default function useCommonForm({ optionsMap }: { optionsMap: Record<strin
     fields,
     commands: [
       {
-        text: '取消',
+        text: 'Cancel',
         command: 'handleCancel',
       },
       {
-        text: '确定',
+        text: 'OK',
         command: 'handleSave',
         loading: false,
         visibleValidator: ({ operateType }: { operateType: string }) => operateType !== 'view',

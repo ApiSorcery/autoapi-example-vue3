@@ -10,7 +10,7 @@ const app = createApp(App)
 app.use(CastorAntdv)
 registerGlobComp(app)
 
-/** 挂载全局变量 dayjs */
+/** Mount global variable dayjs */
 app.provide('dayjs', dayjsWrapper)
 
 app.mount('#app')

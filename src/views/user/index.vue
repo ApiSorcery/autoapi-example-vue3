@@ -36,26 +36,26 @@ const optionsMap = reactive<Record<string, SelectItem[]>>({
   gender: [
     {
       value: 0,
-      label: '未知'
+      label: 'Unknown'
     },
     {
       value: 1,
-      label: '男'
+      label: 'Male'
     },
     {
       value: 2,
-      label: '女'
+      label: 'Female'
     }
   ],
   status: [
     {
       value: false,
-      label: '未启用',
+      label: 'Disabled',
       color: 'gray'
     },
     {
       value: true,
-      label: '已启用',
+      label: 'Enabled',
       color: '#1677ff'
     },
   ]
@@ -132,18 +132,18 @@ const handleDelete = ({ index, row }) => {
   console.log('handleDelete', index, row)
   Modal.confirm({
     type: 'warning',
-    title: '提示',
-    content: '此操作将永久删除该数据, 是否继续?',
-    okText: '确定',
-    cancelText: '取消',
+    title: 'Confirm',
+    content: 'This operation will permanently delete the data. Do you want to continue?',
+    okText: 'OK',
+    cancelText: 'Cancel',
     onCancel: () => {
-      message.info('已取消删除')
+      message.info('Delete cancelled')
     },
     onOk: async () => {
       await apiUser.removeUser({
         id: row.id
       })
-      message.success('删除成功!', 1, getList)
+      message.success('Deleted successfully!', 1, getList)
     }
   })
 }

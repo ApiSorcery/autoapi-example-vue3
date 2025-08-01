@@ -2,7 +2,7 @@ import axios from 'axios'
 import requestInterceptor from '../interceptors/request'
 import responseInterceptor from '../interceptors/response'
 
-// 创建 axios 实例   withCredentials: true,
+// Create axios instance   withCredentials: true,
 const requestClient = axios.create({
   baseURL: import.meta.env.VITE_GLOB_BASE_API,
   timeout: 60000,
