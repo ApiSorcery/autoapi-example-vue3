@@ -1,12 +1,12 @@
 import axios from 'axios'
-import requestInterceptor from '../interceptors/request'
-import responseInterceptor from '../interceptors/response'
+import requestInterceptor from '../../interceptors/request'
+import responseInterceptor from '../../interceptors/response'
 
 // Create axios instance   withCredentials: true,
 const requestClient = axios.create({
   baseURL: import.meta.env.VITE_GLOB_BASE_API,
   timeout: 60000,
-  responseType: 'json',
+  responseType: 'blob',
   headers: {
     'X-Requested-With': 'XMLHttpRequest',
   },
