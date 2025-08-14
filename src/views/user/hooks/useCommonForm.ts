@@ -12,6 +12,27 @@ export default function useCommonForm({ optionsMap }: { optionsMap: Record<strin
         label: 'Code',
         dataField: 'code',
         columnSpan: 1,
+        rules: [
+          { required: true, message: 'Cannot be empty', trigger: 'blur' },
+          {
+            validator: async (rule, value) => {
+              console.log('Code validation:', value)
+              if (!value) return Promise.resolve()
+              if (form.operateType !== 'add') return Promise.resolve()
+              try {
+                const codeExists = await apiUser.validateCode({ code: value })
+                if (codeExists) {
+                  return Promise.reject(new Error('Code already exists'))
+                }
+                return Promise.resolve()
+              } catch (error) {
+                console.error('Code validation error:', error)
+                return Promise.reject(new Error('Code validation failed, please try again'))
+              }
+            },
+            trigger: 'blur',
+          },
+        ],
         disableValidator: ({ operateType }) => operateType !== 'add',
       },
       {
@@ -26,6 +47,7 @@ export default function useCommonForm({ optionsMap }: { optionsMap: Record<strin
         label: 'Email',
         dataField: 'email',
         columnSpan: 1,
+        rules: [{ required: true, message: 'Cannot be empty' }],
       },
       {
         type: 'radioGroup',
@@ -71,9 +93,9 @@ export default function useCommonForm({ optionsMap }: { optionsMap: Record<strin
 
   const handleSave = async ({ command }: { command: CommonCommand }) => {
     console.log('handleSave', form.model, form.emitRegister)
-    command.loading = true
     try {
       await form.emitRegister?.validate?.()
+      command.loading = true
       if (form.model.id) {
         await apiUser.modifyUser(form.model)
       } else {
@@ -81,6 +103,9 @@ export default function useCommonForm({ optionsMap }: { optionsMap: Record<strin
       }
       await message.success('Saved successfully', 1)
       form.visible = false
+    } catch (error) {
+      console.error('Error saving form:', error)
+      command.loading = false
     } finally {
       command.loading = false
     }
