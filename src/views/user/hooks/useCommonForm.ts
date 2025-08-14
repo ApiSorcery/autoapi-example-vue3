@@ -30,7 +30,7 @@ export default function useCommonForm({ optionsMap }: { optionsMap: Record<strin
                 return Promise.reject(new Error('Code validation failed, please try again'))
               }
             },
-            trigger: 'blur',
+            trigger: ['blur', 'change'],
           },
         ],
         disableValidator: ({ operateType }) => operateType !== 'add',
