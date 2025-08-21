@@ -10,4 +10,4 @@ AutoAPI Example Project Vue3 Version
 
 ## Getting Started
 
-Refer to the [official documentation](https://apisorcery.com/)
+Refer to the [official documentation](https://www.apisorcery.com/)
