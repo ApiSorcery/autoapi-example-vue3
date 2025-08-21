@@ -17,13 +17,14 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "@castor-ui/castor-antdv": "^1.0.11",
+    "@castor-ui/castor-antdv": "^1.0.15",
     "@tsconfig/node22": "^22.0.1",
     "@vue/tsconfig": "^0.7.0",
-    "vite-plugin-vue-devtools": "^7.7.2",
     "axios": "^0.24.0",
+    "sass": "1.59.3",
+    "vite-plugin-vue-devtools": "^7.7.2",
     "vue": "^3.5.13",
-    "sass": "1.59.3"
+    "vue-i18n": "^11.1.11"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",

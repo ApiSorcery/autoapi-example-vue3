@@ -39,7 +39,7 @@ export default function useCommonQuery({ optionsMap }: { optionsMap: Record<stri
         extendProps: {
           formItemProps: {
             labelCol: { style: { width: '56px' } },
-            wrapperCol: { style: { width: '120px' } },
+            wrapperCol: { style: { width: '130px' } },
           },
         },
       },
