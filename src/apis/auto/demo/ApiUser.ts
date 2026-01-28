@@ -14,10 +14,10 @@ export const addUser = base.createJsonRequest<Model.UserAddRequestDto,number>((d
 /**
  * Batch export users (Excel)
  */
-export const exportUsers = base.createDownloadRequest<Model.ExportUsersRequest>((req) => ({
+export const exportUsers = base.createDownloadRequest<Model.ExportUsersRequest>((params) => ({
   url: `/user/export`,
   method: 'GET',
-  params: {'code': req.code,'name': req.name,'email': req.email},
+  params,
 }))
 
 /**
@@ -26,6 +26,7 @@ export const exportUsers = base.createDownloadRequest<Model.ExportUsersRequest>(
 export const getUserOne = base.createJsonRequest<Model.GetUserOneRequest,Model.UserInfoDto>((req) => ({
   url: `/user/${req.id}`,
   method: 'GET',
+  params: req,
 }))
 
 /**
@@ -52,22 +53,14 @@ export const modifyUser = base.createJsonRequest<Model.UserModifyRequestDto>((da
 export const removeUser = base.createJsonRequest<Model.RemoveUserRequest>((req) => ({
   url: `/user/${req.id}`,
   method: 'DELETE',
+  params: req,
 }))
 
 /**
  * Validate if user code exists
  */
-export const validateCode = base.createJsonRequest<Model.ValidateCodeRequest,boolean>((req) => ({
+export const validateCode = base.createJsonRequest<Model.ValidateCodeRequest,boolean>((params) => ({
   url: `/user/validateCode`,
   method: 'GET',
-  params: {'code': req.code},
-}))
-
-/**
- * Validate if user email exists
- */
-export const validateEmail = base.createJsonRequest<Model.ValidateEmailRequest,boolean>((req) => ({
-  url: `/user/validateEmail`,
-  method: 'GET',
-  params: {'email': req.email},
+  params,
 }))

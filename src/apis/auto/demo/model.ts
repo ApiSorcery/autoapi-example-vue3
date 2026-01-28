@@ -4,10 +4,10 @@ export interface BlobResp {
   data: Blob;
 
   /** File type */
-  type: String;
+  type: string;
 
   /** File name */
-  name: String;
+  name: string;
 }
 
 /** Batch export users (Excel) request parameters */
@@ -38,12 +38,6 @@ export interface RemoveUserRequest {
 export interface ValidateCodeRequest {
   /** User code */
   code: string;
-}
-
-/** Validate if user email exists request parameters */
-export interface ValidateEmailRequest {
-  /** Email address */
-  email: string;
 }
 
 /** Delete file request parameters */
