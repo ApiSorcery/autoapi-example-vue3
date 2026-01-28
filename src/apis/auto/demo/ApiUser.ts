@@ -26,7 +26,6 @@ export const exportUsers = base.createDownloadRequest<Model.ExportUsersRequest>(
 export const getUserOne = base.createJsonRequest<Model.GetUserOneRequest,Model.UserInfoDto>((req) => ({
   url: `/user/${req.id}`,
   method: 'GET',
-  params: req,
 }))
 
 /**
@@ -53,7 +52,6 @@ export const modifyUser = base.createJsonRequest<Model.UserModifyRequestDto>((da
 export const removeUser = base.createJsonRequest<Model.RemoveUserRequest>((req) => ({
   url: `/user/${req.id}`,
   method: 'DELETE',
-  params: req,
 }))
 
 /**
