@@ -1,6 +1,6 @@
 /// User
-import * as base from './base'
-import * as Model from './model'
+import * as base from './base';
+import * as Model from './model';
 
 /**
  * Add user
@@ -9,7 +9,7 @@ export const addUser = base.createJsonRequest<Model.UserAddRequestDto, number>((
   url: `/user`,
   method: 'POST',
   data,
-}))
+}));
 
 /**
  * Batch export users (Excel)
@@ -18,7 +18,7 @@ export const exportUsers = base.createDownloadRequest<Model.ExportUsersRequest>(
   url: `/user/export`,
   method: 'GET',
   params,
-}))
+}));
 
 /**
  * Get single user
@@ -28,7 +28,7 @@ export const getUserOne = base.createJsonRequest<Model.GetUserOneRequest, Model.
     url: `/user/${req.id}`,
     method: 'GET',
   }),
-)
+);
 
 /**
  * Query user list with pagination
@@ -40,7 +40,7 @@ export const getUserPaged = base.createJsonRequest<
   url: `/user/paged`,
   method: 'POST',
   data,
-}))
+}));
 
 /**
  * Modify user information
@@ -49,7 +49,7 @@ export const modifyUser = base.createJsonRequest<Model.UserModifyRequestDto>((da
   url: `/user`,
   method: 'PATCH',
   data,
-}))
+}));
 
 /**
  * Delete user
@@ -57,7 +57,7 @@ export const modifyUser = base.createJsonRequest<Model.UserModifyRequestDto>((da
 export const removeUser = base.createJsonRequest<Model.RemoveUserRequest>((req) => ({
   url: `/user/${req.id}`,
   method: 'DELETE',
-}))
+}));
 
 /**
  * Validate if user code exists
@@ -68,4 +68,4 @@ export const validateCode = base.createJsonRequest<Model.ValidateCodeRequest, bo
     method: 'GET',
     params,
   }),
-)
+);

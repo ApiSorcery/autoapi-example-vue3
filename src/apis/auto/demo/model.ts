@@ -1,252 +1,252 @@
 /** Batch export users (Excel) request parameters */
 export interface ExportUsersRequest {
   /** User code */
-  code: string
+  code: string;
 
   /** User name */
-  name: string
+  name: string;
 
   /** Email address */
-  email: string
+  email: string;
 }
 
 /** Get single user request parameters */
 export interface GetUserOneRequest {
   /** User ID */
-  id: number
+  id: number;
 }
 
 /** Delete user request parameters */
 export interface RemoveUserRequest {
   /** User ID */
-  id: number
+  id: number;
 }
 
 /** Validate if user code exists request parameters */
 export interface ValidateCodeRequest {
   /** User code */
-  code: string
+  code: string;
 }
 
 /** Delete file request parameters */
 export interface DeleteFileRequest {
   /** File UUID */
-  id: string
+  id: string;
 }
 
 /** Get file request parameters */
 export interface GetFileRequest {
   /** File UUID */
-  id: string
+  id: string;
 }
 
 /** Upload file request parameters */
 export interface UploadFileRequest {
   /** File to upload */
-  file?: File
+  file?: File;
 
   /** File description (optional) */
-  description?: string
+  description?: string;
 
   /** Upload progress callback function */
-  onUploadProgress: (progressEvent: ProgressEvent) => void
+  onUploadProgress: (progressEvent: ProgressEvent) => void;
 }
 
 /** Query user list with pagination response parameters */
 export interface GetUserPagedResponse {
-  results: Array<UserInfoDto>
+  results: Array<UserInfoDto>;
 
-  total: number
+  total: number;
 }
 
 export interface ResultData {
   /**
    * Status code
    */
-  status: number
+  status: number;
 
   /**
    * Status description
    */
-  message: string
+  message: string;
 
   /**
    * Response data
    */
-  data: any
+  data: any;
 }
 
 export interface UserInfoDto {
   /**
    * User ID
    */
-  id: number
+  id: number;
 
   /**
    * User code
    */
-  code: string
+  code: string;
 
   /**
    * User name
    */
-  name: string
+  name: string;
 
   /**
    * Email
    */
-  email: string
+  email: string;
 
   /**
    * Gender
    */
-  gender?: number
+  gender?: number;
 
   /**
    * Avatar
    */
-  avatar?: string
+  avatar?: string;
 
   /**
    * Address
    */
-  address?: string
+  address?: string;
 
   /**
    * Status
    */
-  status?: boolean
+  status?: boolean;
 
   /**
    * Created time
    */
-  createdAt: string
+  createdAt: string;
 
   /**
    * Updated time
    */
-  updatedAt?: string
+  updatedAt?: string;
 }
 
 export interface Pagination {
   /**
    * Page number
    */
-  page?: number
+  page?: number;
 
   /**
    * Items per page
    */
-  limit?: number
+  limit?: number;
 
   /**
    * Sort field
    */
-  sortBy?: string
+  sortBy?: string;
 
   /**
    * Sort order
    */
-  order?: string
+  order?: string;
 }
 
 export interface UserPageQueryDto {
   /**
    * Pagination parameters
    */
-  pagination?: Pagination
+  pagination?: Pagination;
 
   /**
    * User code
    */
-  code?: string
+  code?: string;
 
   /**
    * User name
    */
-  name?: string
+  name?: string;
 
   /**
    * User status
    */
-  status?: boolean
+  status?: boolean;
 }
 
 export interface UserAddRequestDto {
   /**
    * User code
    */
-  code: string
+  code: string;
 
   /**
    * User name
    */
-  name: string
+  name: string;
 
   /**
    * Email
    */
-  email: string
+  email: string;
 
   /**
    * Gender
    */
-  gender?: number
+  gender?: number;
 
   /**
    * Avatar
    */
-  avatar?: string
+  avatar?: string;
 
   /**
    * Address
    */
-  address?: string
+  address?: string;
 
   /**
    * Status
    */
-  status?: boolean
+  status?: boolean;
 }
 
 export interface UserModifyRequestDto {
   /**
    * User ID
    */
-  id: number
+  id: number;
 
   /**
    * User code
    */
-  code?: string
+  code?: string;
 
   /**
    * User name
    */
-  name?: string
+  name?: string;
 
   /**
    * Email
    */
-  email?: string
+  email?: string;
 
   /**
    * Gender
    */
-  gender?: number
+  gender?: number;
 
   /**
    * Avatar
    */
-  avatar?: string
+  avatar?: string;
 
   /**
    * Address
    */
-  address?: string
+  address?: string;
 
   /**
    * Status
    */
-  status?: boolean
+  status?: boolean;
 }
