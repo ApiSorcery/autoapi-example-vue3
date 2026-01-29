@@ -1,5 +1,5 @@
 import type { AxiosResponse } from 'axios'
-import type { BlobResp, Result } from '../../axios'
+import type { BlobResp, Result } from '../types/axios'
 
 export default {
   onFulfilled: async (res: AxiosResponse<Result>) => {

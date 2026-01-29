@@ -1,7 +1,7 @@
 import type { AxiosRequestConfig } from 'axios'
 import type { BlobResp } from './model'
-import jsonRequest from '../../axios/clients/demo/json'
-import blobRequest from '../../axios/clients/demo/blob'
+import jsonRequest from './httpClient/requests/json'
+import blobRequest from './httpClient/requests/blob'
 
 export const createJsonRequest = <TReq, TResp = any>(
   requestConfigCreator: (args: TReq) => AxiosRequestConfig,
