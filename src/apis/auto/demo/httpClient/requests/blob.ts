@@ -8,17 +8,17 @@ const requestClient = axios.create({
   timeout: 60000,
   responseType: 'blob',
   headers: {
-    'X-Requested-With': 'XMLHttpRequest'
-  }
+    'X-Requested-With': 'XMLHttpRequest',
+  },
 })
 
 requestClient.interceptors.request.use(
   requestInterceptor.onFulfilled,
-  requestInterceptor.onRejected
+  requestInterceptor.onRejected,
 )
 requestClient.interceptors.response.use(
   responseInterceptor.onFulfilled,
-  responseInterceptor.onRejected
+  responseInterceptor.onRejected,
 )
 
 export default requestClient
