@@ -1,5 +1,5 @@
-import { computed, reactive } from 'vue'
-import type { CommonQuery, QueryField } from '@castor-ui/castor-antdv'
+import { computed, reactive } from 'vue';
+import type { CommonQuery, QueryField } from '@castor-ui/castor-antdv';
 
 export default function useCommonQuery({ optionsMap }: { optionsMap: Record<string, any> }) {
   const fields = computed<Array<QueryField>>(() => {
@@ -43,8 +43,8 @@ export default function useCommonQuery({ optionsMap }: { optionsMap: Record<stri
           },
         },
       },
-    ]
-  })
+    ];
+  });
 
   const query = reactive<CommonQuery>({
     loading: false,
@@ -71,7 +71,7 @@ export default function useCommonQuery({ optionsMap }: { optionsMap: Record<stri
       labelCol: { style: { width: '40px' } },
       wrapperCol: { style: { flex: 1 } },
     },
-  })
+  });
 
-  return query
+  return query;
 }

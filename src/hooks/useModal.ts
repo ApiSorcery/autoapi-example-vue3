@@ -1,4 +1,4 @@
-import { nextTick } from 'vue'
+import { nextTick } from 'vue';
 
 /**
  * Reset form (clear validation results, reset field values)
@@ -6,12 +6,12 @@ import { nextTick } from 'vue'
  * @param callback Callback event
  */
 export const resetForm = ({ form, callback }) => {
-  ;(form.emitRegister as any).clearValidate()
-  ;(form.emitRegister as any).resetFields()
+  (form.emitRegister as any).clearValidate();
+  (form.emitRegister as any).resetFields();
   if (callback) {
-    callback()
+    callback();
   }
-}
+};
 
 /**
  * Update form binding object values
@@ -20,12 +20,12 @@ export const resetForm = ({ form, callback }) => {
  * @param data New data object
  */
 export const setFormValue = (model, data) => {
-  console.log('setFormValue', model, data)
+  console.log('setFormValue', model, data);
   nextTick(() => {
     Object.keys(model).forEach((field) => {
       if (Object.prototype.hasOwnProperty.call(data, field)) {
-        model[field] = data[field]
+        model[field] = data[field];
       }
-    })
-  })
-}
+    });
+  });
+};
