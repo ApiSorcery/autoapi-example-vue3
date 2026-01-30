@@ -12,10 +12,10 @@
       "version": 3,
       "enabled": true,
       "source": "https://apisorcery.com/demo-api/swagger-json",
-      "baseStrategy": "once",
-      "httpClientStrategy": "once",
       "returnLevel": "second",
-      "returnSecondField": "data"
+      "returnSecondField": "data",
+      "baseStrategy": "always",
+      "httpClientStrategy": "once"
     }
   ]
 }
