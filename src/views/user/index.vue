@@ -154,6 +154,35 @@ const handleDelete = ({ index, row }) => {
     },
   });
 };
+
+const handleExport = async () => {
+  console.log('handleExport', query.model);
+  try {
+    message.loading('Exporting users...', 0);
+    const response = await apiUser.exportUsers({
+      code: query.model.code || '',
+      name: query.model.name || '',
+      email: '',
+    });
+
+    // Create download link
+    const url = window.URL.createObjectURL(response.data);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = response.name || `users_${dayjs().format('YYYY-MM-DD_HH-mm-ss')}.xlsx`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    window.URL.revokeObjectURL(url);
+
+    message.destroy();
+    message.success('Export completed successfully!');
+  } catch (error) {
+    message.destroy();
+    message.error('Export failed, please try again');
+    console.error('Export error:', error);
+  }
+};
 //#endregion
 
 const emitRegister = {
@@ -163,6 +192,7 @@ const emitRegister = {
   handleEdit,
   handleDelete,
   handleAdd,
+  handleExport,
 };
 
 getList();

@@ -66,6 +66,13 @@ export default function useCommonQuery({ optionsMap }: { optionsMap: Record<stri
         text: 'Reset',
         command: 'handleReset',
       },
+      {
+        text: 'Export',
+        command: 'handleExport',
+        elementProps: {
+          type: 'default',
+        },
+      },
     ],
     elementProps: {
       labelCol: { style: { width: '40px' } },
