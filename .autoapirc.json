@@ -1,14 +1,15 @@
 {
   "application": {
+    "framework": "vue",
     "language": "ts",
     "outputDir": "./src/apis/auto"
   },
   "servers": [
     {
       "code": "demo",
+      "source": "https://apisorcery.com/demo-api/swagger-json",
       "version": 3,
       "enabled": true,
-      "source": "https://apisorcery.com/demo-api/swagger-json",
       "returnLevel": "second",
       "returnSecondField": "data",
       "baseStrategy": "always",
