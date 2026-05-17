@@ -80,7 +80,7 @@ autoapi-example-vue3/
 │   │   └── dayjs.ts       # Date utility
 │   ├── App.vue            # Root component
 │   └── main.ts            # Application entry
-├── .autoapirc.json        # AutoAPI configuration
+├── .apisorceryrc.json        # AutoAPI configuration
 ├── .env                   # Environment variables
 ├── vite.config.ts         # Vite configuration
 ├── tsconfig.json          # TypeScript configuration
@@ -89,7 +89,7 @@ autoapi-example-vue3/
 
 ## API Configuration
 
-The application uses AutoAPI to generate type-safe API client code. Configuration is in `.autoapirc.json`:
+The application uses AutoAPI to generate type-safe API client code. Configuration is in `.apisorceryrc.json`:
 
 ```json
 {
